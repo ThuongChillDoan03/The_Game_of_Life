@@ -1,0 +1,26 @@
+LUẬT CHƠI:
+    Hàng xóm: Là những phần xung quanh nó (8 ô)
+    1. Nếu 1 ô còn sống và hàng xóm có 2 hoặc 3 vẫn còn sống thì ô đó vẫn sống ở thế hệ sau
+    2. Nếu chỉ có 0 hoặc 1 hàng xóm còn sống thì sẽ chết ở thế hệ sau
+    3. Nếu có >= 4 hàng xóm sống xung quanh thì sẽ chết ở thế hệ sau
+    4. Nếu đang CHẾT mà xung quanh có đúng 3 hàng xóm sống thì hồi sinh ở thế hệ sau.
+    (Tất cả các tế bào chết vẫn sẽ chết ở thế hệ sau)
+
+
+DESIGN_FUNCTION:
+    1. LifeGrid(nrows, ncols): tạo 1 lưới có n hàng và n cột, tất cả các sinh vật được khởi tạo là chết
+    2. numRows() : trả về số hàng của lưới
+    3. numCols() : Trả về số cột của lưới
+    4. configure(coordList) : coordList là chuỗi tọa độ các sinh vật sống,(biểu diễn val(Coord) == 1) ==> ô chết là 0)
+    
+    5. clearCell(row,col) : xóa các ô thành chết (1-->0) (Không cần thiết)
+    6. setCell(row, col) : ô chỉ định (r,c) thành sống (0-->1) (Không cần thiết)
+    7. isLiveCell(row,col) : trả về dạng bool cho biết vị trí (c,r) có sv sống không. (Không cần thiết)
+    
+    8. numLiveNeighbors( row, col ): Trả về số hàng xóm trực tiếp cho ô đã cho (hàng, cột). Các hàng xóm của một 
+        ô bao gồm tất cả các ô ngay lập tức xung quanh nó theo mọi hướng. Đối với các ô dọc theo đường viền của 
+        lưới, những người hàng xóm rơi ra ngoài lưới được coi là đã chết. Chỉ số ôphải nằm trong phạm vi hợp lệ
+        của lưới.
+    9. Hàm bổ sung(Khác solution): Grid_next_generation(): trả ra lưới của dạng mới.
+
+
